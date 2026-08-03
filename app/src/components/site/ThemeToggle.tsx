@@ -10,7 +10,7 @@ function getInitial(): boolean {
   return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
 
-export function useTheme() {
+function useTheme() {
   const [dark, setDark] = useState<boolean>(getInitial)
 
   useEffect(() => {
