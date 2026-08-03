@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 203 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 44%;
+    --accent: 204 94% 94%;
+    --accent-foreground: 206 92% 32%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 28% 90%;
+    --input: 214 28% 90%;
+    --ring: 203 89% 48%;
+    --radius: 1rem;
+
+    --brand: 203 89% 48%;
+    --brand-strong: 206 92% 40%;
+    --brand-soft: 204 94% 95%;
+
+    --navy: 222 60% 8%;
+    --navy-card: 220 52% 12%;
+    --navy-border: 219 40% 20%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 97%;
+    --card: 220 43% 10%;
+    --card-foreground: 210 40% 97%;
+    --popover: 220 43% 10%;
+    --popover-foreground: 210 40% 97%;
+    --primary: 203 89% 52%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 217 33% 15%;
+    --secondary-foreground: 210 40% 97%;
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 62%;
+    --accent: 217 50% 18%;
+    --accent-foreground: 204 94% 70%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 30% 18%;
+    --input: 217 30% 18%;
+    --ring: 203 89% 52%;
+
+    --brand: 203 89% 52%;
+    --brand-strong: 203 89% 60%;
+    --brand-soft: 217 50% 16%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-feature-settings: 'ss01';
+  }
+  ::selection {
+    background: hsl(var(--brand) / 0.2);
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[1200px] px-5 md:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.18em];
+    color: hsl(var(--brand));
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block h-2 w-2 rounded-full;
+    background: hsl(var(--brand));
+  }
+  .h2 {
+    @apply text-[30px] font-bold leading-[1.1] tracking-[-0.02em] md:text-[44px] lg:text-[52px];
+  }
+  .lead {
+    @apply text-base leading-relaxed text-muted-foreground md:text-lg;
+  }
+  .card-title {
+    @apply text-lg font-semibold leading-snug md:text-xl;
+  }
+  .card-text {
+    @apply text-[15px] leading-relaxed text-muted-foreground;
+  }
+  .glass {
+    background: hsl(var(--background) / 0.75);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  }
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1200; }
+  to { stroke-dashoffset: 0; }
+}
+.chart-line {
+  stroke-dasharray: 1200;
+  animation: draw-line 2.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@keyframes grow-bar {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.chart-bar {
+  transform-origin: bottom;
+  animation: grow-bar 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-fade-up {
+  animation: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Thin elegant scrollbar for tab rails */
+.rail {
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Reduced motion: контент виден сразу, без анимаций */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .chart-line,
+  .chart-bar,
+  .animate-float,
+  .animate-fade-up,
+  .pulse-dot {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
