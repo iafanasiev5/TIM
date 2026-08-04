@@ -307,10 +307,10 @@ export default function Scenarios() {
   const Panel = PANELS[scenario.id]
 
   return (
-    <section id="scenarios" ref={ref} className="scroll-mt-20 bg-navy py-20 text-white md:py-28">
+    <section id="scenarios" ref={ref} className="scroll-mt-20 bg-background py-20 text-foreground dark:bg-navy dark:text-white md:py-28">
       <div className="container-site">
         <div>
-          <div className="reveal eyebrow !text-sky-400">{SCENARIOS.eyebrow}</div>
+          <div className="reveal eyebrow !text-brand dark:!text-sky-400">{SCENARIOS.eyebrow}</div>
           <h2 className="reveal h2 mt-5" style={{ transitionDelay: '80ms' }}>{SCENARIOS.title}</h2>
         </div>
 
@@ -324,11 +324,11 @@ export default function Scenarios() {
               onClick={() => setActive(i)}
               className={`flex shrink-0 items-center gap-2.5 rounded-2xl border px-4 py-3 text-[14px] font-semibold transition-all duration-200 ${
                 i === active
-                  ? 'border-sky-400/60 bg-sky-400/15 text-white shadow-[0_0_0_1px_rgba(56,189,248,0.25)]'
-                  : 'border-white/10 bg-white/[0.04] text-white/55 hover:border-white/25 hover:text-white'
+                  ? 'border-brand/50 bg-brand-soft text-brand-strong shadow-soft dark:border-sky-400/60 dark:bg-sky-400/15 dark:text-white dark:shadow-[0_0_0_1px_rgba(56,189,248,0.25)]'
+                  : 'border-border bg-card text-muted-foreground hover:border-brand/30 hover:text-foreground dark:border-white/10 dark:bg-white/[0.04] dark:text-white/55 dark:hover:border-white/25 dark:hover:text-white'
               }`}
             >
-              <span className={`text-[12px] font-bold ${i === active ? 'text-sky-300' : 'text-white/35'}`}>{s.num}</span>
+              <span className={`text-[12px] font-bold ${i === active ? 'text-brand dark:text-sky-300' : 'text-muted-foreground/70 dark:text-white/35'}`}>{s.num}</span>
               {s.tab}
             </button>
           ))}
@@ -337,27 +337,27 @@ export default function Scenarios() {
         {/* Body */}
         <div key={scenario.id} className="animate-fade-up mt-6 grid gap-5 lg:grid-cols-[0.9fr_1.4fr]">
           {/* Left: query + steps */}
-          <div className="flex flex-col rounded-3xl border border-white/10 bg-white/[0.045] p-6 md:p-8">
+          <div className="flex flex-col rounded-3xl border border-border bg-card p-6 shadow-soft dark:border-white/10 dark:bg-white/[0.045] dark:shadow-none md:p-8">
             <div className="flex items-start gap-4">
               <T1mMark className="h-12 w-12 shrink-0 text-[15px] shadow-lift" />
               <div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-sky-400">Запрос пользователя</div>
+                <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand dark:text-sky-400">Запрос пользователя</div>
                 <p className="mt-2 text-[19px] font-bold leading-snug md:text-[21px]">{scenario.query}</p>
               </div>
             </div>
 
-            <div className="mt-6 inline-flex items-center gap-2 self-start rounded-xl border border-white/10 bg-white/[0.05] px-3.5 py-2.5 text-[12.5px] font-medium text-white/75">
-              <FileText className="h-4 w-4 text-sky-400" />
+            <div className="mt-6 inline-flex items-center gap-2 self-start rounded-xl border border-border bg-muted/50 px-3.5 py-2.5 text-[12.5px] font-medium text-muted-foreground dark:border-white/10 dark:bg-white/[0.05] dark:text-white/75">
+              <FileText className="h-4 w-4 text-brand dark:text-sky-400" />
               {scenario.source}
             </div>
 
             <div className="mt-auto space-y-3 pt-8">
               {scenario.steps.map((st) => (
-                <div key={st.title} className="flex items-center gap-3.5 rounded-2xl border-l-[3px] border-sky-400 bg-white/[0.05] px-4 py-3">
-                  <CircleCheck className="h-[18px] w-[18px] shrink-0 text-sky-300" />
+                <div key={st.title} className="flex items-center gap-3.5 rounded-2xl border-l-[3px] border-brand bg-muted/50 px-4 py-3 dark:border-sky-400 dark:bg-white/[0.05]">
+                  <CircleCheck className="h-[18px] w-[18px] shrink-0 text-brand dark:text-sky-300" />
                   <div>
                     <div className="text-[14px] font-bold">{st.title}</div>
-                    <div className="text-[12.5px] text-white/55">{st.text}</div>
+                    <div className="text-[12.5px] text-muted-foreground dark:text-white/55">{st.text}</div>
                   </div>
                 </div>
               ))}
@@ -370,7 +370,7 @@ export default function Scenarios() {
           </div>
         </div>
 
-        <p className="mt-8 text-center text-[12.5px] text-white/40">{SCENARIOS.disclaimer}</p>
+        <p className="mt-8 text-center text-[12.5px] text-muted-foreground dark:text-white/40">{SCENARIOS.disclaimer}</p>
       </div>
     </section>
   )
