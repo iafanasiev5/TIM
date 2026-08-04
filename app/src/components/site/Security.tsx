@@ -14,13 +14,13 @@ export default function Security() {
           <h2 className="reveal h2 mt-5" style={{ transitionDelay: '80ms' }}>{SECURITY.title}</h2>
           <p className="reveal lead mt-6 max-w-[460px]" style={{ transitionDelay: '160ms' }}>{SECURITY.lead}</p>
 
-          <div className="reveal mt-8 flex items-start gap-4 rounded-3xl bg-navy p-6 text-white shadow-lift md:p-7" style={{ transitionDelay: '240ms' }}>
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sky-400/20">
-              <ShieldCheck className="h-6 w-6 text-sky-300" />
+          <div className="reveal mt-8 flex items-start gap-4 rounded-3xl border border-border bg-card p-6 shadow-lift md:p-7" style={{ transitionDelay: '240ms' }}>
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-soft">
+              <ShieldCheck className="h-6 w-6 text-brand" />
             </span>
             <div>
-              <div className="text-[16px] font-bold">{SECURITY.hitl.title}</div>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/65">{SECURITY.hitl.text}</p>
+              <div className="text-[16px] font-bold text-foreground">{SECURITY.hitl.title}</div>
+              <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">{SECURITY.hitl.text}</p>
             </div>
           </div>
         </div>

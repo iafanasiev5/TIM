@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────────────────────
 
 // Логотип-бейдж: значок TIM + надпись в 2 строки (шапка и футер)
-export const BRAND = { line1: 'Цифровой', line2: 'помощник' }
+export const BRAND = { line1: 'Цифровой', line2: 'ассистент' }
 
 export const NAV = [
   { label: 'Возможности', href: '#features' },
@@ -372,18 +372,18 @@ export const SECURITY = {
 
 export const ARCHITECTURE = {
   eyebrow: 'Архитектура',
-  title: 'Опен-сорс технология',
+  title: 'Open source технологии',
   flow: {
-    entry: { label: 'Единая точка входа', title: 'Чат-интерфейс' },
+    entry: { title: 'Чат-интерфейс' },
     orchestrator: { label: 'AI-агент', title: 'Оркестратор', chips: ['Intent', 'Tools', 'Memory'] },
     middle: [
       { label: 'Model Gateway', title: 'LLM-модель', text: 'локальная или корпоративная' },
       { label: 'Semantic / Query Core', title: 'Описание данных, формулы, шаблоны SQL' },
     ],
     sources: [
-      { num: '01', title: 'БД', text: 'Oracle · PostgreSQL · ClickHouse · Greenplum · DWH' },
-      { num: '02', title: 'BI-системы', text: 'Power BI · Superset · Tableau · Qlik · API' },
-      { num: '03', title: 'RAG', text: 'Документы · регламенты · база знаний · корпоративный поиск' },
+      { title: 'БД', text: 'Oracle · PostgreSQL · ClickHouse · Greenplum · DWH' },
+      { title: 'BI-системы', text: 'Power BI · Superset · Tableau · Qlik · API' },
+      { title: 'RAG', text: 'Документы · регламенты · база знаний · корпоративный поиск' },
     ],
     guardrails: 'Guardrails + HITL',
     guardrailsText: 'права · допустимые инструменты · валидация · подтверждение · аудит',

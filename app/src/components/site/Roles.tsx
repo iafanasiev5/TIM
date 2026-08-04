@@ -18,14 +18,14 @@ export default function Roles() {
         </h2>
 
         {/* Tabs */}
-        <div className="rail reveal mt-10 flex gap-2.5 overflow-x-auto pb-1" role="tablist" aria-label="Роли" style={{ transitionDelay: '140ms' }}>
+        <div className="reveal mt-10 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7" role="tablist" aria-label="Роли" style={{ transitionDelay: '140ms' }}>
           {ROLES.items.map((r, i) => (
             <button
               key={r.id}
               role="tab"
               aria-selected={i === active}
               onClick={() => setActive(i)}
-              className={`shrink-0 rounded-2xl border px-5 py-3.5 text-left text-[14.5px] font-semibold leading-tight transition-all duration-200 ${
+              className={`min-h-[62px] w-full rounded-2xl border px-4 py-3.5 text-left text-[14px] font-semibold leading-tight transition-all duration-200 ${
                 i === active
                   ? 'border-sky-400/60 bg-sky-400/15 text-white shadow-[0_0_0_1px_rgba(56,189,248,0.25),0_10px_30px_-12px_rgba(56,189,248,0.4)]'
                   : 'border-white/10 bg-white/[0.04] text-white/60 hover:border-white/25 hover:text-white'

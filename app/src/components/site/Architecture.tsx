@@ -30,7 +30,6 @@ export default function Architecture() {
             {/* Entry */}
             <div className="flex flex-col items-center justify-center gap-2.5 rounded-2xl border border-border bg-muted/40 p-6 text-center dark:bg-muted/15">
               <T1mMark className="h-12 w-12 text-[15px] shadow-lift" />
-              <div className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-muted-foreground">{flow.entry.label}</div>
               <div className="text-[17px] font-bold">{flow.entry.title}</div>
             </div>
             <FlowArrow />
@@ -70,8 +69,7 @@ export default function Architecture() {
               {flow.sources.map((s, i) => {
                 const Icon = SOURCE_ICONS[i]
                 return (
-                  <div key={s.num} className="flex flex-1 items-center gap-3.5 rounded-2xl border border-border bg-muted/40 px-5 py-4 dark:bg-muted/15">
-                    <span className="text-[12px] font-extrabold tabular-nums text-brand">{s.num}</span>
+                  <div key={s.title} className="flex flex-1 items-center gap-3.5 rounded-2xl border border-border bg-muted/40 px-5 py-4 dark:bg-muted/15">
                     <Icon className="h-5 w-5 shrink-0 text-brand" />
                     <div>
                       <div className="text-[14.5px] font-bold">{s.title}</div>
