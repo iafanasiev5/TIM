@@ -31,7 +31,9 @@ function TimSmile({ size = 56 }: { size?: number }) {
 }
 
 export default function ChatWidget() {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches,
+  )
 
   if (!open) {
     return (

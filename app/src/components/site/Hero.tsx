@@ -159,7 +159,7 @@ function ProductMock() {
 export default function Hero() {
   const ref = useRevealRoot<HTMLElement>()
   return (
-    <section id="top" ref={ref} className="relative overflow-hidden pb-20 pt-[120px] md:pb-28 md:pt-[160px]">
+    <section id="top" ref={ref} className="relative overflow-hidden pb-20 pt-[120px] md:pb-28 md:pt-[160px] 2xl:pb-24 2xl:pt-48">
       {/* background */}
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
         <div className="absolute inset-x-0 top-0 h-[640px] bg-gradient-to-b from-brand-soft via-background to-background" />

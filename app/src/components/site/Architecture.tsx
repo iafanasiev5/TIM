@@ -35,12 +35,12 @@ export default function Architecture() {
             <FlowArrow />
 
             {/* Orchestrator */}
-            <div className="flex flex-col justify-center rounded-2xl border border-brand/30 bg-brand-soft p-6">
-              <div className="text-center text-[10.5px] font-bold uppercase tracking-[0.14em] text-brand-strong">{flow.orchestrator.label}</div>
+            <div className="flex flex-col justify-center rounded-2xl border border-border bg-muted/40 p-6 dark:bg-muted/15">
+              <div className="text-center text-[10.5px] font-bold uppercase tracking-[0.14em] text-muted-foreground">{flow.orchestrator.label}</div>
               <div className="mt-1 text-center text-[20px] font-extrabold">{flow.orchestrator.title}</div>
               <div className="mt-4 flex justify-center gap-2">
                 {flow.orchestrator.chips.map((c) => (
-                  <span key={c} className="rounded-lg border border-brand/25 bg-card px-3 py-1.5 text-[12px] font-semibold text-muted-foreground">{c}</span>
+                  <span key={c} className="rounded-lg border border-border bg-card px-3 py-1.5 text-[12px] font-semibold text-muted-foreground">{c}</span>
                 ))}
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function Architecture() {
           </div>
 
           {/* Guardrails */}
-          <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-2xl border border-brand/25 bg-brand-soft px-5 py-3.5">
+          <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-2xl border border-brand/35 bg-transparent px-5 py-3.5">
             <span className="flex items-center gap-2 text-[13.5px] font-bold text-brand-strong">
               <ShieldCheck className="h-[18px] w-[18px]" /> {flow.guardrails}
             </span>
@@ -91,7 +91,7 @@ export default function Architecture() {
         </div>
 
         {/* Deploy */}
-        <div className="reveal mt-8 rounded-[28px] border border-brand/20 bg-gradient-to-br from-brand-soft to-transparent p-6 md:p-9" style={{ transitionDelay: '200ms' }}>
+        <div className="reveal mt-8 rounded-[28px] border border-border bg-card p-6 shadow-soft md:p-9" style={{ transitionDelay: '200ms' }}>
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.4fr]">
             <div>
               <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-strong">{deploy.label}</div>
