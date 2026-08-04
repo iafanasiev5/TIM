@@ -10,19 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>TIM — Intelligence Management</title>
     <script>
-      // Тема применяется до первой отрисовки — без вспышки светлой темы
+      // Тема применяется до первой отрисовки — без смены цветов после загрузки
       ;(function () {
         try {
           var p = new URLSearchParams(location.search).get('theme')
-          var dark = p ? p === 'dark'
-            : localStorage.getItem('t1m-theme') ? localStorage.getItem('t1m-theme') === 'dark'
-            : matchMedia('(prefers-color-scheme: dark)').matches
-          if (dark) document.documentElement.classList.add('dark')
+          var saved = localStorage.getItem('t1m-theme')
+          var valid = function (v) { return v === 'mixed' || v === 'light' || v === 'dark' }
+          var mode = valid(p) ? p : valid(saved) ? saved : 'mixed'
+          if (mode === 'dark') document.documentElement.classList.add('dark')
+          if (mode === 'mixed') document.documentElement.classList.add('mixed')
+          document.documentElement.style.colorScheme = mode === 'dark' ? 'dark' : 'light'
         } catch (e) {}
       })()
     </script>
-    <script type="module" crossorigin src="./assets/index-B1bJNwb0.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C0r0pGRl.css">
+    <script type="module" crossorigin src="./assets/index-C7kwFyVv.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DnI4FtrW.css">
   </head>
   <body>
     <div id="root"></div>

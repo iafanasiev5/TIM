@@ -12,7 +12,7 @@ export default function Roles() {
   const role = ROLES.items[active]
 
   return (
-    <section id="roles" ref={ref} className="scroll-mt-20 bg-background py-20 text-foreground dark:bg-navy dark:text-white md:py-28">
+    <section id="roles" ref={ref} className="mixed-dark scroll-mt-20 bg-background py-20 text-foreground dark:bg-navy dark:text-white md:py-28">
       <div className="container-site">
         <div className="reveal eyebrow !text-brand dark:!text-sky-400">{ROLES.eyebrow}</div>
         <h2 className="reveal h2 mt-5 max-w-[980px]" style={{ transitionDelay: '80ms' }}>

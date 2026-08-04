@@ -4,7 +4,7 @@ import { useRevealRoot } from '@/hooks/useReveal'
 export default function Effects() {
   const ref = useRevealRoot<HTMLElement>()
   return (
-    <section id="effects" ref={ref} className="scroll-mt-20 bg-muted/40 py-20 md:py-28 dark:bg-muted/5">
+    <section id="effects" ref={ref} className="mixed-dark scroll-mt-20 bg-muted/40 py-20 md:py-28 dark:bg-muted/5">
       <div className="container-site">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>

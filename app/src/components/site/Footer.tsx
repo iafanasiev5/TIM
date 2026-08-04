@@ -4,7 +4,7 @@ import { BrandLockup } from './Logo'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-muted/40 py-12 dark:bg-muted/5">
+    <footer className="mixed-dark border-t border-border bg-muted/40 py-12 dark:bg-muted/5">
       <div className="container-site">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <BrandLockup badgeClass="h-10 w-10 text-[13px]" textClass="text-[16px]" />

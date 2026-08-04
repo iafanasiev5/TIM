@@ -59,6 +59,32 @@
     --brand-strong: 203 89% 60%;
     --brand-soft: 217 50% 16%;
   }
+
+  .mixed .mixed-dark {
+    --background: 222 60% 8%;
+    --foreground: 210 40% 97%;
+    --card: 220 43% 10%;
+    --card-foreground: 210 40% 97%;
+    --popover: 220 43% 10%;
+    --popover-foreground: 210 40% 97%;
+    --primary: 203 89% 52%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 217 33% 15%;
+    --secondary-foreground: 210 40% 97%;
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 62%;
+    --accent: 217 50% 18%;
+    --accent-foreground: 204 94% 70%;
+    --border: 217 30% 18%;
+    --input: 217 30% 18%;
+    --ring: 203 89% 52%;
+    --brand: 203 89% 52%;
+    --brand-strong: 203 89% 60%;
+    --brand-soft: 217 50% 16%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    color-scheme: dark;
+  }
 }
 
 @layer base {

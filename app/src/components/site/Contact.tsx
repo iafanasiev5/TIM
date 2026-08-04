@@ -25,7 +25,7 @@ export default function Contact() {
     'w-full rounded-2xl border border-border bg-muted/40 px-[18px] py-3.5 text-[15px] outline-none transition-all placeholder:text-muted-foreground/60 focus:border-brand focus:bg-card focus:ring-4 focus:ring-brand/15 dark:bg-muted/10'
 
   return (
-    <section id="contact" ref={ref} className="scroll-mt-20 py-20 md:py-28">
+    <section id="contact" ref={ref} className="mixed-dark scroll-mt-20 bg-background py-20 text-foreground md:py-28">
       <div className="container-site grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         <div>
           <div className="reveal eyebrow">{CONTACT.eyebrow}</div>

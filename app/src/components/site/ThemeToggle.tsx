@@ -1,37 +1,73 @@
 import { useEffect, useState } from 'react'
-import { Moon, Sun } from 'lucide-react'
+import { Moon, Palette, Sun } from 'lucide-react'
 
-function getInitial(): boolean {
-  if (typeof window === 'undefined') return false
+type ThemeMode = 'mixed' | 'light' | 'dark'
+
+const MODES: Array<{
+  value: ThemeMode
+  label: string
+  Icon: typeof Palette
+}> = [
+  { value: 'mixed', label: 'Разнообразие', Icon: Palette },
+  { value: 'light', label: 'Светлая тема', Icon: Sun },
+  { value: 'dark', label: 'Тёмная тема', Icon: Moon },
+]
+
+function isThemeMode(value: string | null): value is ThemeMode {
+  return value === 'mixed' || value === 'light' || value === 'dark'
+}
+
+function getInitial(): ThemeMode {
+  if (typeof window === 'undefined') return 'mixed'
   const param = new URLSearchParams(window.location.search).get('theme')
-  if (param) return param === 'dark'
+  if (isThemeMode(param)) return param
   const saved = localStorage.getItem('t1m-theme')
-  if (saved) return saved === 'dark'
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
+  if (isThemeMode(saved)) return saved
+  return 'mixed'
 }
 
 function useTheme() {
-  const [dark, setDark] = useState<boolean>(getInitial)
+  const [mode, setMode] = useState<ThemeMode>(getInitial)
 
   useEffect(() => {
     const root = document.documentElement
-    root.classList.toggle('dark', dark)
-    localStorage.setItem('t1m-theme', dark ? 'dark' : 'light')
-  }, [dark])
+    root.classList.toggle('dark', mode === 'dark')
+    root.classList.toggle('mixed', mode === 'mixed')
+    root.style.colorScheme = mode === 'dark' ? 'dark' : 'light'
+    localStorage.setItem('t1m-theme', mode)
+  }, [mode])
 
-  return { dark, toggle: () => setDark((d) => !d) }
+  return { mode, setMode }
 }
 
 export default function ThemeToggle() {
-  const { dark, toggle } = useTheme()
+  const { mode, setMode } = useTheme()
   return (
-    <button
-      onClick={toggle}
-      aria-label={dark ? 'Включить светлую тему' : 'Включить тёмную тему'}
-      className="relative flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-muted"
+    <div
+      className="flex h-9 items-center rounded-full border border-border bg-card p-0.5 shadow-xs"
+      role="group"
+      aria-label="Тема оформления"
     >
-      <Sun className={`h-[18px] w-[18px] transition-all ${dark ? 'scale-0 -rotate-90 opacity-0' : 'scale-100 rotate-0 opacity-100'} absolute`} />
-      <Moon className={`h-[18px] w-[18px] transition-all ${dark ? 'scale-100 rotate-0 opacity-100' : 'scale-0 rotate-90 opacity-0'} absolute`} />
-    </button>
+      {MODES.map(({ value, label, Icon }) => {
+        const active = mode === value
+        return (
+          <button
+            key={value}
+            type="button"
+            onClick={() => setMode(value)}
+            aria-label={label}
+            aria-pressed={active}
+            title={label}
+            className={`flex h-8 w-8 items-center justify-center rounded-full transition-all ${
+              active
+                ? 'bg-brand text-white shadow-soft'
+                : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+            }`}
+          >
+            <Icon className="h-4 w-4" />
+          </button>
+        )
+      })}
+    </div>
   )
 }
