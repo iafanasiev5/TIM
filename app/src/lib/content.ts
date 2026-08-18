@@ -406,12 +406,12 @@ export const ARCHITECTURE = {
       {
         num: '03',
         title: 'Подключить данные',
-        text: 'Live Connect к DWH, БД и BI; ClickHouse — только как опциональный кэш.',
+        text: 'Live Connect к DWH, БД и BI.',
       },
       {
         num: '04',
         title: 'Применить политики',
-        text: 'AD/SSO, роли, row/column access, guardrails, HITL и аудит.',
+        text: 'AD/SSO, роли, guardrails, HITL и аудит.',
       },
     ],
     footnote:
